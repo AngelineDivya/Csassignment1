@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Assignment Form</title>
+<style>
+   .submissiontime{
+ margin-top: 20px;
+ font-weight: bold
+}
+</style>
+</head>
+<body align="left">
+
+  <h2>Student Assignment Form</h2>
+
+  <form action="https://script.google.com/macros/s/AKfycbyaT-fXkcKDdJW5A_BSjXCAfn1IFqCx4BoFqgoOCw66O-dT893YaXpdxbcmh0hiqpOa/exec" method="POST" onsubmit="addTimestamp()">
+
+    <label>Name:<br><input type="text" name="name" required></label><br><br>
+    <label>Write a program to add 2 numbers<br><textarea name="q1" required rows="7" cols="70"></textarea></label><br><br>
+    <label>Write about pointers<br><textarea name="q2" required rows="7" cols="70"></textarea></label><br><br>
+    <label>Write a program to print fibonacci series<br><textarea name="q3" required rows="7" cols="70"></textarea></label><br><br>
+    <label>Write a program to check if number is odd or even<br><textarea name="q4" required rows="7" cols="70"></textarea></label><br><br>
+    <label>Write about Queues<br><textarea name="q5" required rows="7" cols="70"></textarea></label><br><br>
+  
+    <button type="submit">Submit</button>
+  </form>
+<script>
+        // Disable right-click and text selection
+        document.addEventListener("contextmenu", function(event) {
+            event.preventDefault();
+        });
+
+        document.addEventListener("selectstart", function(event) {
+            event.preventDefault();
+        });
+     document.addEventListener('keydown', function (e) {
+    if ((e.ctrlKey && e.key === 'c') || (e.ctrlKey && e.key === 'v')) {
+        e.preventDefault();  // Prevent copying or pasting
+    }
+   });
+    
+document.getElementById('assignmentForm').addEventListener('submit', function (event) {
+    event.preventDefault();  // Prevent the form from submitting the traditional way
+
+    // Get the current date and time
+    const currentDateTime = new Date();
+    const formattedTime = currentDateTime.toLocaleString(); // Localized date-time format
+
+    // Display the submission time in the document
+    document.getElementById('submissionTime').textContent = `Form submitted at: ${formattedTime}`;
+
+    // Optionally, you can submit the form data to the server here if needed
+    // For example: 
+    // fetch('/submit', { method: 'POST', body: new FormData(event.target) })
+});
+
+
+
+    
+</script>
+</body>
+</html>
